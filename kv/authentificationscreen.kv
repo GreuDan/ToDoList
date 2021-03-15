@@ -1,0 +1,73 @@
+
+<AuthentificationScreen>
+
+        FloatLayout:
+                canvas:
+                        Color:
+                                rgb:utils.get_color_from_hex("#00ffff")
+
+                        Rectangle:
+                                size: self.size
+                                pos: self.pos
+                Label:
+                        text:"Please enter your name in app:"
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.43,"center_y":.95}
+                        color:utils.get_color_from_hex("#000000")
+
+                TextInput:
+                        id:name
+                        hint_text:"Name"
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.85}
+                        multiline:False
+                Label:
+                        text:""
+                        id:name_error
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.4,"center_y":.79}
+                        color:utils.get_color_from_hex("#000000")
+                Label:
+                        text:"Please enter your email:"
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.4,"center_y":.75}
+                        color:utils.get_color_from_hex("#000000")
+                TextInput:
+                        id:email
+                        hint_text:"Email"
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.65}
+                        multiline:False
+                Label:
+                        text:""
+                        id:email_error
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.5,"center_y":.55}
+                        color:utils.get_color_from_hex("#000000")
+
+                Label:
+                        text:"Please enter your password:"
+                        id:password
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.42,"center_y":.45}
+                        color:utils.get_color_from_hex("#000000")
+                TextInput:
+                        id:password
+                        hint_text:"Password"
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.35}
+                        multiline:False
+                Label:
+                        text:""
+                        id:password_error
+                        size_hint:.1,.1
+                        pos_hint: {"center_x":.5,"center_y":.25}
+                        color:utils.get_color_from_hex("#000000")
+                Button:
+                        text:"Submit"
+                        color:utils.get_color_from_hex("#FFFF00")
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.15}
+                        on_release:
+                                app.database.sign_up(email.text,password.text,name.text)
+

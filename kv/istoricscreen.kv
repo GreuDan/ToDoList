@@ -1,0 +1,42 @@
+
+<IstoricScreen>:
+        FloatLayout:
+                id:istoric_fill
+                canvas:
+                        Color:
+                                rgb:utils.get_color_from_hex("#00ffff")
+
+                        Rectangle:
+                                size: self.size
+                                pos: self.pos
+                GridLayout:
+                        canvas:
+                                Color:
+                                        rgb:utils.get_color_from_hex("#110a91")
+
+                                Rectangle:
+                                        size: self.size
+                                        pos: self.pos
+                        rows: 1
+                        size_hint:1,.1
+                        pos_hint: {"top":1,"left":1}
+                        Button:
+                                text:"Account"
+                                on_release:
+
+                                        app.root.current="account_screen"
+                                        root.manager.transition.direction="right"
+                        Label:
+                                text:"Istoric"
+
+                        Button:
+                                text:"Notifications"
+                                on_release:
+                                        app.root.current="notification_screen"
+                                        root.manager.transition.direction="left"
+                        Button:
+                                text:"Scheduel"
+                                on_release:
+                                        app.root.current="scheduel_screen"
+                                        root.manager.transition.direction="left"
+

@@ -1,0 +1,35 @@
+#:include kv/scheduelscreen.kv
+#:include kv/notificationscreen.kv
+#:include kv/accountscreen.kv
+#:include kv/istoricscreen.kv
+#:include kv/authentificationscreen.kv
+#:include kv/addtaskscreen.kv
+#:include kv/addfriendscreen.kv
+ScreenManager:
+        name:"screen_manager"
+        id:screen_manager
+        AuthentificationScreen:
+                name:"authentification_screen"
+                id:authentification_screen
+        NotificationScreen:
+                name: "notification_screen"
+                id:notification_screen
+        IstoricScreen:
+                name:"istoric_screen"
+                id: istoric_screen
+        AccountScreen:
+                name:"account_screen"
+                id:account_screen
+        ScheduelScreen:
+                name: "scheduel_screen"
+                id:scheduel_screen
+        AddTaskScreen:
+                name:"addtask_screen"
+                id: addtask_screen
+        AddFriendScreen:
+                name:"addfriend_screen"
+                id:addfriend_screen
+
+
+
+

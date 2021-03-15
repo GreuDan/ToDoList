@@ -1,0 +1,70 @@
+
+<NotificationScreen>:
+        FloatLayout:
+                canvas:
+                        Color:
+                                rgb:utils.get_color_from_hex("#00ffff")
+
+                        Rectangle:
+                                size: self.size
+                                pos: self.pos
+                GridLayout:
+                        canvas:
+                                Color:
+                                        rgb:utils.get_color_from_hex("#110a91")
+
+                                Rectangle:
+                                        size: self.size
+                                        pos: self.pos
+                        rows: 1
+                        size_hint:1,.1
+                        pos_hint: {"top":1,"left":1}
+                        Button:
+                                text:"Account"
+                                on_release:
+                                        app.root.current="account_screen"
+                                        root.manager.transition.direction="right"
+                        Button:
+                                text:"Istoric"
+                                on_release:
+                                        app.root.current="istoric_screen"
+                                        root.manager.transition.direction="right"
+                        Label:
+                                id:notification_label
+                                text:"Notifications"
+
+                        Button:
+                                text:"Scheduel"
+                                on_release:
+                                        app.root.current="scheduel_screen"
+                                        root.manager.transition.direction="left"
+
+                Label:
+                        text:"SOUND NOTIFICATIONS"
+                        pos_hint:{"center_x":.5,"center_y":.8}
+                        size_hint:.1,.1
+                        color:utils.get_color_from_hex("#000000")
+                Spinner:
+                        id:spinner
+                        color:utils.get_color_from_hex("#FFFF00")
+                        pos_hint:{"center_x":.5,"center_y":.65}
+                        size_hint:.5,.1
+                        text: "Select Alarm"
+                        values: ["Fast A1","Fast A2","Fast Pitch A1","Fast Pitch A2","Fast Pitch A3","Fast Pitch B1","Slow A1","Slow A2","Slow A3","Slow B2"]
+                        on_text:
+                                app.SelectSound(spinner)
+                Label:
+                        text:"VOICE NOTIFICATIONS"
+                        pos_hint:{"center_x":.5,"center_y":.45 }
+                        size_hint:.1,.1
+                        color:utils.get_color_from_hex("#000000")
+
+                Spinner:
+                        id:spinner2
+                        color:utils.get_color_from_hex("#FFFF00")
+                        pos_hint:{"center_x":.5,"center_y":.3}
+                        size_hint:.5,.1
+                        text: "Select Alarm"
+                        values: ["Fast A1","Fast A2","Fast Pitch A1","Fast Pitch A2","Fast Pitch A3","Fast Pitch B1","Slow A1","Slow A2","Slow A3","Slow B2"]
+                        on_text:
+                                app.SelectSound(spinner2)

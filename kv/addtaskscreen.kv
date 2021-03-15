@@ -1,0 +1,74 @@
+
+<AddTaskScreen>
+
+        FloatLayout:
+                canvas:
+                        Color:
+                                rgb:utils.get_color_from_hex("#00ffff")
+
+                        Rectangle:
+                                size: self.size
+                                pos: self.pos
+
+                TextInput:
+                        id:task
+                        hint_text:"Add Task's Name"
+
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.85}
+                        multiline:False
+
+                Label:
+                        text:"Hour"
+                        pos_hint:{"center_x":.31,"center_y":.65}
+                        size_hint:.3,.3
+                        color:utils.get_color_from_hex("#000000")
+
+                Spinner:
+                        text:"00"
+                        pos_hint:{"center_x":.4,"center_y":.65}
+                        id:hour
+                        color:utils.get_color_from_hex("#FFFF00")
+                        size_hint:.1,.1
+                        values: ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                        on_text:
+                                pass
+                Label:
+                        text:"Minute"
+                        pos_hint:{"center_x":.55,"center_y":.65}
+                        size_hint:.1,.1
+                        color:utils.get_color_from_hex("#000000")
+                Spinner:
+                        text:"00"
+                        pos_hint:{"center_x":.65,"center_y":.65}
+                        id:minute
+                        color:utils.get_color_from_hex("#FFFF00")
+                        size_hint:.1,.1
+                        values: ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                        on_text:
+                                pass
+
+                Spinner:
+                        id:repeats
+                        color:utils.get_color_from_hex("#FFFF00")
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        size_hint:.4,.1
+                        text: "Default Repeat None"
+                        values: ["Daily","Once a Week","Once a Month"]
+                        on_text:
+                                pass
+
+                Button:
+                        text:"Submit"
+                        color:utils.get_color_from_hex("#FFFF00")
+                        size_hint:.4,.1
+                        pos_hint:{"center_x":.5,"center_y":.15}
+                        on_release:
+                                app.root.current="scheduel_screen"
+                                root.manager.transition.direction="right"
+                                app.AddTask(task.text,hour.text,minute.text,repeats.text)
+                                task.text=""
+                                minute.text="00"
+                                hour.text="00"
+
+
